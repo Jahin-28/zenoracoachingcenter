@@ -614,9 +614,9 @@ const WHY=[
 
 /* ১) লোগো ও আইকন (ডাবল কোটের ভেতরে ছবির নাম) */
 const LOGOS={
-  zenora:"zenora-logo.jpeg",         /* Zenora এর লোগো: উপরের মেনু ও হিরো অংশে */
-  icon:"zenora-icon.jpeg",           /* Zenora এর আইকন: ব্রাউজার ট্যাব ও লোগোর অর্থ অংশে */
-  foundation:"foundation-logo.jpeg"  /* Foundation এর লোগো */
+  zenora:"zanora.jpeg",         /* Zenora এর লোগো: উপরের মেনু ও হিরো অংশে */
+  icon:"icon.jpeg",           /* Zenora এর আইকন: ব্রাউজার ট্যাব ও লোগোর অর্থ অংশে */
+  foundation:"foundation.jpeg"  /* Foundation এর লোগো */
 };
 document.querySelectorAll("[data-logo]").forEach(e=>{e.src=LOGOS[e.dataset.logo]});
 document.getElementById("favicon").href=LOGOS.icon;
@@ -624,8 +624,8 @@ document.getElementById("favicon").href=LOGOS.icon;
 /* ২) ফাউন্ডার, শিক্ষক, ক্লাস ও পরীক্ষার ছবি */
 const FOUNDER_IMGS=["jahin.jpeg","johin.jpeg","rajib.jpeg","sharier.jpeg","nasim.jpeg"];
 const TEACHER_IMGS=["","debabratasir.jpeg","israfilsir.jpeg","charwyarsir.jpeg","nijarsir.jpeg","rajib.jpeg","jahin.jpeg","azadsir.jpeg"];
-const CLASS_IMGS=["class1.jpeg","class2.jpeg","class3.jpeg","class4.jpeg","class5.jpeg","class6.jpeg","class7.jpeg","class8.jpeg","class9.jpeg","class10.jpeg"];
-const EXAM_IMGS=["exam1.jpeg","exam2.jpeg","exam3.jpeg","exam4.jpeg","exam5.jpeg","exam6.jpeg","exam7.jpeg","exam8.jpeg","exam9.jpeg","exam10.jpeg"];
+const CLASS_IMGS=["c1.jpeg","c2.jpeg","c3.jpeg","c4.jpeg","c5.jpeg","c6.jpeg","c7.jpeg","c8.jpeg","c9.jpeg","c10.jpeg"];
+const EXAM_IMGS=["e1.jpeg","e2.jpeg","e3.jpeg","e4.jpeg","e5.jpeg","e6.jpeg","e7.jpeg","e8.jpeg","e9.jpeg","e10.jpeg"];
 /* ===== ছবির নামের তালিকা শেষ ===== */
 /* ৩) ভিডিও (৫টা)। u = ইউটিউব/ফেসবুক লিংক অথবা নিজের ভিডিও ফাইলের নাম (যেমন "video1.mp4")। t = থাম্বনেইল ছবির নাম (ইউটিউব লিংকে লাগে না) */
 const VIDEOS=[
