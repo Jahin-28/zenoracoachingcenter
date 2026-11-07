@@ -774,7 +774,7 @@ function cnt(el,n){let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1200
 if(GC){const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+GC+".goatcounter.com/count";document.head.appendChild(sc);
 const b="https://"+GC+".goatcounter.com/counter/"+encodeURIComponent(location.pathname)+".json",d=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Dhaka"});
 const g=u=>fetch(u).then(r=>r.json()).then(j=>parseInt(String(j.count).replace(/\D/g,""))||0);
-setTimeout(()=>{g(b+"?start=2025-01-01").then(n=>cnt($("vt"),n)).catch(()=>{});g(b+"?start="+d).then(n=>cnt($("vtd"),n)).catch(()=>{})},1500)}
+setTimeout(()=>{const x=Date.now();g(b+"?start=2025-01-01&_="+x).then(n=>cnt($("vt"),n)).catch(()=>{});g(b+"?start="+d+"&_="+x).then(n=>cnt($("vtd"),n)).catch(()=>{})},1500)}
 else $("vn").textContent="ভিজিটর কাউন্টার শীঘ্রই চালু হবে।";
 /*P5js*/
 
