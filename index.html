@@ -294,6 +294,7 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
 .logo img{width:100%;height:100%;object-fit:contain;border-radius:0;transform:scale(1.15)}
 .flg img,.fh .flg img{inset:15%;width:70%;height:70%;padding:0;border-radius:6%;object-fit:contain;background:transparent}
 .top img{box-sizing:border-box;padding:6px;object-fit:contain}
+.vc b{font-variant-numeric:lining-nums}
 </style>
 </head>
 <body>
@@ -769,7 +770,7 @@ if(MAP_URL){const b=$("mapBtn");b.href=MAP_URL;b.hidden=false;$("mpn").hidden=tr
 
 /* ভিজিটর কাউন্টার: GoatCounter এ একাউন্ট খুলে কোড (যেমন zenora) এখানে বসান। না বসালে কোনো সংখ্যা দেখানো হবে না */
 const GC="zenora";
-function cnt(el,n){let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1200,1);el.textContent=bn(Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("en-US"));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+function cnt(el,n){let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 if(GC){const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+GC+".goatcounter.com/count";document.head.appendChild(sc);
 const b="https://"+GC+".goatcounter.com/counter/"+encodeURIComponent(location.pathname)+".json",d=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Dhaka"});
 const g=u=>fetch(u).then(r=>r.json()).then(j=>parseInt(String(j.count).replace(/\D/g,""))||0);
