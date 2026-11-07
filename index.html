@@ -768,7 +768,7 @@ document.querySelectorAll("#fndList p").forEach(e=>e.style.marginTop="8px");
 if(MAP_URL){const b=$("mapBtn");b.href=MAP_URL;b.hidden=false;$("mpn").hidden=true}
 
 /* ভিজিটর কাউন্টার: GoatCounter এ একাউন্ট খুলে কোড (যেমন zenora) এখানে বসান। না বসালে কোনো সংখ্যা দেখানো হবে না */
-const GC="";
+const GC="zenora";
 function cnt(el,n){let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1200,1);el.textContent=bn(Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("en-US"));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 if(GC){const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+GC+".goatcounter.com/count";document.head.appendChild(sc);
 const b="https://"+GC+".goatcounter.com/counter/TOTAL.json",d=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Dhaka"});
