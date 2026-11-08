@@ -295,16 +295,162 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
 .flg img,.fh .flg img{inset:15%;width:70%;height:70%;padding:0;border-radius:6%;object-fit:contain;background:transparent}
 .top img{box-sizing:border-box;padding:6px;object-fit:contain}
 .vc b{font-variant-numeric:lining-nums}
+/* ৬ পেজ, মেনু, অ্যানিমেশন */
+.tabs .pg{display:none}.tabs .pg.on{display:block;animation:pgin .5s ease both}
+@keyframes pgin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+header{position:relative}
+#mb{display:none!important}
+#nv{display:grid!important;grid-template-columns:repeat(4,1fr);gap:5px;padding:8px 0 10px;overflow:visible}
+#nv a{display:flex;align-items:center;justify-content:center;min-height:42px;text-align:center;padding:6px 2px;border-radius:10px;border:1px solid #c9a22766;font-size:12.5px;line-height:1.25;color:#dfe6f8;text-decoration:none}
+#nv a.on{background:var(--gg);color:var(--n);border-color:transparent;font-weight:700}
+@media(min-width:900px){header{position:sticky}#nv{display:flex!important;gap:8px}#nv a{padding:8px 18px;font-size:16px}}
+.pn{padding:34px 20px 10px;text-align:center}.pn p{font-weight:600;color:var(--n)}
+.pnb{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-width:760px;margin:12px auto 0}
+.pnb a{padding:9px 2px;border-radius:10px;border:1px solid var(--g);color:var(--n);text-decoration:none;font-size:12.5px;background:#fff;display:flex;align-items:center;justify-content:center;min-height:42px}
+.pnb a.on{background:var(--gg);font-weight:700}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.rv h2::after{width:0;transition:width .8s ease .25s}.rv.in h2::after{width:60px}
+.bc,.tc,.fc,.cc,.nb,.tk,.ct,.btn{transition:transform .25s ease,box-shadow .25s ease}
+@media(hover:hover){.bc:hover,.tc:hover,.fc:hover,.nb:hover,.tk:hover,.ct:hover{transform:translateY(-4px);box-shadow:0 14px 30px #0a1f4d26}.btn.p:hover{transform:translateY(-2px);box-shadow:0 8px 20px #c9a22766}}
+#wl{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 40%,#173a85,#0a1f4d 70%);display:grid;place-items:center;text-align:center;color:#fff;transition:opacity .6s ease,visibility .6s;cursor:pointer;padding:20px}
+#wl.out{opacity:0;visibility:hidden}
+#wl .wt{font:600 clamp(12px,3.4vw,16px) 'Playfair Display',serif;letter-spacing:.4em;color:var(--g2);opacity:0;animation:wi .8s .2s ease forwards}
+#wl .wn{font:700 clamp(26px,8vw,54px)/1.2 'Playfair Display',serif;letter-spacing:.08em;margin:14px 0;opacity:0;animation:wi .9s .6s ease forwards}
+#wl .wr{width:0;height:3px;background:var(--gg);margin:0 auto;animation:wr 1s .9s ease forwards}
+#wl .wm{font:600 clamp(11px,3vw,14px) 'Playfair Display',serif;letter-spacing:.35em;color:#c9d6f4;margin-top:16px;opacity:0;animation:wi .8s 1.3s ease forwards}
+@keyframes wi{to{opacity:1}}@keyframes wr{to{width:120px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}#wl{display:none}}
+
+.bgfx{z-index:2}
+.bgfx i{border:2px solid rgba(23,58,133,.45);box-shadow:0 0 0 1.5px rgba(255,255,255,.65),inset 0 0 8px rgba(255,255,255,.35)}
+.bgfx i.g{border-color:rgba(198,154,58,.85)}
+/* ===== নতুন: স্প্ল্যাশ, বুদবুদ, টুলবার, জিপিএ, ব্যানার ===== */
+#wl .wlc{width:clamp(150px,min(58vw,36vh),330px);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;overflow:hidden;background:#fff;border:4px solid var(--g);box-shadow:0 0 0 8px #ffffff22,0 12px 40px #0008;opacity:0;transform:scale(.6);animation:wz .9s .1s cubic-bezier(.2,1.3,.4,1) forwards}
+#wl .wlc img{width:100%;height:100%;object-fit:contain;transform:scale(1.15)}
+@keyframes wz{to{opacity:1;transform:none}}
+#wl .wt{font-size:clamp(18px,5.4vw,30px);letter-spacing:.32em;margin-top:6px}
+#wl .wn{opacity:1;animation:none;font-size:clamp(22px,6.4vw,46px);letter-spacing:.05em;margin:12px 0}#wl .ww{display:inline-block;white-space:nowrap}
+#wl .wn span{display:inline-block;opacity:0;transform:translateY(26px) scale(.8);animation:wl .55s ease forwards}
+@keyframes wl{to{opacity:1;transform:none}}
+#wl .wm{font-size:clamp(15px,4.4vw,24px);letter-spacing:.3em;background:linear-gradient(90deg,#c9d6f4 30%,#f3dc92 50%,#c9d6f4 70%) 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wi .8s 1.7s forwards,sh 2.4s 2.4s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.bgfx i{border:2px solid rgba(23,58,133,.35);background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.9),rgba(111,147,214,.22) 60%,rgba(23,58,133,.08))}
+.bgfx i.g{border-color:rgba(198,154,58,.75);background:radial-gradient(circle at 30% 28%,rgba(255,244,205,.95),rgba(198,154,58,.28) 65%)}
+#zt{position:fixed;left:12px;bottom:14px;z-index:90;display:flex;flex-direction:column;gap:10px}
+#zt button{width:42px;height:42px;border-radius:50%;border:2px solid var(--g);background:var(--n);color:#fff;font-size:21px;cursor:pointer;box-shadow:0 6px 18px #0005}
+#zg{position:fixed;inset:0;z-index:300;background:#000a;display:none;align-items:center;justify-content:center;padding:14px}
+#zg.on{display:flex}
+#zg .bx{background:#fff;color:#16213a;width:min(480px,100%);max-height:90vh;overflow:auto;border-radius:18px;border:3px solid var(--g);padding:18px}
+#zg h3{margin:0 0 4px;color:var(--n)}#zg small{color:#58647f;display:block;margin-bottom:10px}
+#zg .r{display:grid;grid-template-columns:1fr 90px auto;gap:6px;margin-bottom:6px;align-items:center}
+#zg input[type=text],#zg input[type=number]{width:100%;padding:8px;border:1px solid #dfe5f1;border-radius:8px;font:inherit;min-width:0}
+#zg .ac{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#zg .ac button{padding:9px 14px;border-radius:10px;border:0;font:inherit;font-weight:700;cursor:pointer;background:#eef2fb;color:#0a1f4d}
+#zg .ac .go{background:var(--g);color:#0a1f4d}
+#zr{margin-top:12px;padding:12px;border-radius:12px;background:#fbf1cf;color:#6b4a00;font-weight:700;text-align:center;display:none}
+#zb{position:relative;z-index:80;text-align:center;padding:9px 40px;font-weight:700}
+#zb{background-size:200% 100%;animation:sh 6s linear infinite;color:#fff;text-shadow:0 1px 3px #0006}
+#zb.eid{background-image:linear-gradient(90deg,#0b6b3a,#d4af37,#0b6b3a)}#zb.nat{background-image:linear-gradient(90deg,#006a4e,#f42a41,#006a4e)}#zb.bw{background-image:linear-gradient(90deg,#d62839,#ff9f1c,#d62839)}#zb.ny{background-image:linear-gradient(90deg,#0a1f4d,#c9a227,#0a1f4d)}
+#zb.v1{letter-spacing:.02em;font-size:1.05em}#zb.v2{border-bottom:3px solid #f3dc92;font-style:italic}
+#zb .zd{display:inline-block;animation:zbf 2.4s ease-in-out infinite}@keyframes zbf{50%{transform:translateY(-3px) scale(1.15)}}
+#zb button{position:absolute;right:8px;top:4px;border:0;background:none;font-size:22px;cursor:pointer;color:#0a1f4d}
+html[data-theme=dark]{--ink:#e8eefc;--mut:#a9b6d6;--bg:#0b1226;--ln:#27355c;color-scheme:dark}html[data-theme=dark] body{background:#0b1226}html[data-theme=dark] #lb button,html[data-theme=dark] .ac,html[data-theme=dark] .alt,html[data-theme=dark] .bc,html[data-theme=dark] .cd div,html[data-theme=dark] .ct,html[data-theme=dark] .docs,html[data-theme=dark] .fc,html[data-theme=dark] .fh .flg img,html[data-theme=dark] .fh img,html[data-theme=dark] .flg img,html[data-theme=dark] .fq,html[data-theme=dark] .fx,html[data-theme=dark] .gl2 li,html[data-theme=dark] .hot,html[data-theme=dark] .ms.up .tg2,html[data-theme=dark] .ms.up::before,html[data-theme=dark] .nb,html[data-theme=dark] .phq,html[data-theme=dark] .pnb a,html[data-theme=dark] .steps li,html[data-theme=dark] .sv,html[data-theme=dark] .tc,html[data-theme=dark] .tk,html[data-theme=dark] .top img,html[data-theme=dark] /*P6css*/
+.flg,html[data-theme=dark] body,html[data-theme=dark] table,html[data-theme=dark] tr{background:#131d3c!important;color:#e8eefc}html[data-theme=dark] #nv a.on,html[data-theme=dark] .bh b,html[data-theme=dark] .cm,html[data-theme=dark] .cm .en,html[data-theme=dark] .dt b,html[data-theme=dark] .eq,html[data-theme=dark] .fh .bd,html[data-theme=dark] .fq summary,html[data-theme=dark] .jn,html[data-theme=dark] .k5 b,html[data-theme=dark] .pa,html[data-theme=dark] .phq,html[data-theme=dark] .pn p,html[data-theme=dark] .pnb a,html[data-theme=dark] .rd b,html[data-theme=dark] .steps b,html[data-theme=dark] .tk b,html[data-theme=dark] .wl b,html[data-theme=dark] h2,html[data-theme=dark] h3,html[data-theme=dark] td:first-child{color:#cfe0ff!important}html[data-theme=dark] .alt{background:rgba(11,18,38,.8)!important}html[data-theme=dark] .bgfx i{border-color:rgba(160,190,255,.4)}
+.bgfx i{border-color:rgba(23,58,133,.2);box-shadow:none;background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.7),rgba(111,147,214,.1) 60%)}.bgfx i.g{border-color:rgba(198,154,58,.38);background:radial-gradient(circle at 30% 28%,rgba(255,244,205,.7),rgba(198,154,58,.12) 65%)}.bgfx i.g::after{display:none}
+@keyframes fl{0%{transform:translate3d(0,0,0);opacity:0}12%{opacity:.4}88%{opacity:.4}100%{transform:translate3d(var(--dx),-105vh,0);opacity:0}}
+
+
+#nv a[href="#vocab"]:not(.on),#nv a[href="#gpa"]:not(.on){background:linear-gradient(135deg,#12b3a0,#0b7d8f);border-color:#7ff0e0;color:#fff!important;font-weight:700;box-shadow:0 0 10px #12b3a066}.pnb a[href="#vocab"]:not(.on),.pnb a[href="#gpa"]:not(.on){border-color:#12b3a0;font-weight:700}
+#vx .vtop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:var(--n);color:#f3dc92;border-radius:14px;padding:12px 16px;font-weight:700;margin-bottom:14px}#vx .vtop span{color:#fff;font-weight:600}
+#vx input.vsr{width:100%;padding:12px;border:2px solid var(--g);border-radius:12px;font:inherit;margin-bottom:14px;background:#fff;color:#16213a}
+#vx .lvs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:16px}
+#vx .lvc{border:2px solid transparent;border-radius:16px;padding:16px;text-align:left;cursor:pointer;color:#fff;font:inherit;background:var(--c);opacity:.78;box-shadow:0 6px 18px #0003}#vx .lvc.on{opacity:1;border-color:var(--g);transform:translateY(-2px)}
+#vx .lvc b{display:block;font-size:1.08em}#vx .lvc em{display:inline-block;font-style:normal;background:#fff;color:var(--c);border-radius:8px;padding:1px 8px;font-size:.8em;font-weight:700;margin:6px 0}#vx .lvc small{display:block;opacity:.92}
+#vx .pk{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid #e8d9a8;border-radius:16px;padding:14px 16px;margin-bottom:10px;box-shadow:0 4px 14px #0001}#vx .pk .tr{font-size:2em}#vx .pk .in{flex:1}#vx .pk .in b{color:var(--n);display:block}#vx .pk .in small{color:#6a7590}
+#vx .pk button,#vx .bt{border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;background:var(--g);color:#0a1f4d}#vx .pk button:disabled{background:#e4e7ee;color:#8a93a8;cursor:not-allowed}#vx .pk.dn{border-color:var(--g)}
+#vx .bar{height:6px;background:#e4e7ee;border-radius:9px;overflow:hidden;margin-top:6px}#vx .bar i{display:block;height:100%;background:linear-gradient(90deg,#c9a227,#f3dc92)}
+#vx .bk2{background:linear-gradient(135deg,#ffd98a,#f3b64a);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin:14px 0;color:#4a3300;font-weight:700}#vx .bk2 button{margin-left:auto;background:#fff7dd}
+#vx .hd{display:flex;align-items:center;gap:10px;margin-bottom:12px}#vx .hd button{border:0;background:var(--n);color:#f3dc92;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer}#vx .hd b{color:var(--n)}
+#vx .fc3{perspective:1000px;height:clamp(210px,38vh,290px);max-width:520px;margin:0 auto;cursor:pointer}#vx .fi{position:relative;height:100%;transition:transform .55s;transform-style:preserve-3d}#vx .fc3.f .fi{transform:rotateY(180deg)}
+#vx .fa{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;border:3px solid var(--g);border-radius:20px;box-shadow:0 10px 28px #0003,8px 8px 0 -2px #fff,10px 10px 0 -1px #e8d9a8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center}#vx .fa.b{transform:rotateY(180deg)}
+#vx .fa .w{font-size:clamp(1.9em,8vw,2.7em);font-weight:700;color:var(--n);font-family:"Playfair Display",Georgia,serif}#vx .fa .p{color:#7a869f;font-style:italic;margin-top:4px}#vx .fa .m{font-size:1.7em;font-weight:700;color:#16213a;margin-top:8px}#vx .fa .hn{position:absolute;bottom:10px;font-size:.78em;color:#9aa3b8}
+#vx .ic{position:absolute;top:10px;border:0;background:none;font-size:1.5em;cursor:pointer;color:var(--n)}#vx .ic.l{left:12px}#vx .ic.r{right:12px}
+#vx .nv2{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0}#vx .nv2 button{border:0;border-radius:12px;padding:11px 18px;font:inherit;font-weight:700;background:var(--n);color:#f3dc92;cursor:pointer}#vx .nv2 button:disabled{opacity:.35}#vx .nv2 span{font-weight:700;color:var(--n)}
+#vx .mr{display:block;margin:0 auto;background:#ffd23a;color:#3a2a00}#vx .dt{max-width:520px;margin:14px auto 0;background:#fff;border:2px solid #cfe0f1;border-radius:16px;padding:14px 16px;color:#16213a}#vx .dt p{margin:8px 0}#vx .dt b{color:#1479a8}#vx .dt .ab{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}#vx .dt .ab button{border:1px solid #cfd8ec;background:#f4f7fd;border-radius:10px;padding:7px 12px;cursor:pointer;font:inherit}
+#vx .done{text-align:center;background:#fff;border:3px solid var(--g);border-radius:20px;padding:28px 18px;max-width:520px;margin:0 auto}#vx .done .tr{font-size:4em}
+html[data-theme=dark] #vx .pk,html[data-theme=dark] #vx .fa,html[data-theme=dark] #vx .dt,html[data-theme=dark] #vx .done,html[data-theme=dark] #vx input.vsr{background:#131d3c;color:#e8eefc}html[data-theme=dark] #vx .fa .w,html[data-theme=dark] #vx .pk .in b,html[data-theme=dark] #vx .hd b,html[data-theme=dark] #vx .nv2 span{color:#cfe0ff}html[data-theme=dark] #vx .fa .m,html[data-theme=dark] #vx .dt{color:#e8eefc}html[data-theme=dark] #vx .dt .ab button{background:#1b2a52;color:#e8eefc;border-color:#27355c}
+
+#gx .gc{max-width:620px;background:#fff;border:3px solid var(--g);border-radius:20px;padding:16px;box-shadow:0 8px 24px #0002}
+#gx .gh{display:grid;grid-template-columns:1fr 92px 54px;gap:6px;font-weight:700;color:var(--n);margin-bottom:6px;font-size:.9em}
+#gx .r{display:grid;grid-template-columns:1fr 92px 54px;gap:6px;margin-bottom:7px;align-items:center}#gx .r input[type=text],#gx .r input[type=number]{width:100%;padding:10px;border:1px solid #cfd8ec;border-radius:10px;font:inherit;min-width:0;background:#fff;color:#16213a}#gx .r label{text-align:center}
+#gx .ac{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}#gx .ac button{padding:11px 16px;border-radius:12px;border:0;font:inherit;font-weight:700;cursor:pointer;background:#eef2fb;color:#0a1f4d}#gx .ac .go{background:var(--g)}
+#gx .rs{margin-top:14px;padding:16px;border-radius:14px;background:#fbf1cf;color:#6b4a00;font-weight:700;text-align:center;font-size:1.15em;display:none}
+#gx table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.92em}#gx td,#gx th{border:1px solid #dfe5f1;padding:6px 8px;text-align:center}#gx th{background:var(--n);color:#f3dc92}
+html[data-theme=dark] #gx .gc,html[data-theme=dark] #gx .r input[type=text],html[data-theme=dark] #gx .r input[type=number]{background:#131d3c;color:#e8eefc}html[data-theme=dark] #gx .gh{color:#cfe0ff}html[data-theme=dark] #gx td{border-color:#27355c}
+/* ===== কার্ডের লেখা ডান পাশে লেগে যাওয়ার সংশোধন + পরিপূর্ণ ডার্ক মোড ===== */
+.bt{padding-right:14px}
+.bt .dt{flex-wrap:wrap;gap:2px 12px}
+.bt .dt b{margin-left:auto}
+.bc{padding:22px 20px}
+.mc{overflow-wrap:anywhere}
+@media(max-width:420px){.bc{padding:20px 14px}.bt{padding-left:10px;padding-right:10px}}
+html[data-theme=dark] body .bt.on{background:#0f2b22!important;color:#d6f3e2!important;border-left-color:#2fbf71}
+html[data-theme=dark] body .bt.soon{background:#13244d!important;color:#d9e5ff!important;border-left-color:#5b8cff}
+html[data-theme=dark] body .bt.off{background:#1b2236!important;color:#cdd3e4!important;border-left-color:#6b738a}
+html[data-theme=dark] body .bt .dt span{color:#b9c6e6}
+html[data-theme=dark] body .bt .dt b{color:#f3f6ff}
+html[data-theme=dark] body .pill.on{background:#14432d!important;color:#8ff0b8!important}
+html[data-theme=dark] body .pill.soon{background:#1b3270!important;color:#a9c4ff!important}
+html[data-theme=dark] body .pill.off{background:#2a3144!important;color:#cdd3e4!important}
+html[data-theme=dark] body .pill.hot{background:#3f3010!important;color:#f3dc92!important}
+html[data-theme=dark] body .mc{background:#3a2f0e;color:#f3dc92}
+html[data-theme=dark] body .note{background:#2b2410;border-color:#c9a22799;color:#f3dc92}
+html[data-theme=dark] body .rl{background:#3a2f0e!important;color:#f3dc92!important}
+html[data-theme=dark] body .mt{background:#27355c}
+html[data-theme=dark] body .rd div{background:#1b2a52;color:#e8eefc}
+html[data-theme=dark] body .tg2{background:#14432d;color:#8ff0b8}
+html[data-theme=dark] body .ms.up .tg2{background:#3f3010!important;color:#f3dc92}
+html[data-theme=dark] body .ms time,html[data-theme=dark] body .tc .r,html[data-theme=dark] body td:nth-child(3),html[data-theme=dark] body .bnm,html[data-theme=dark] body .k1 b{color:#e8c969!important}
+html[data-theme=dark] body .k2 b{color:#5fe39a!important}
+html[data-theme=dark] body .k3 b{color:#ff9d9d!important}
+html[data-theme=dark] body .k4 b{color:#8bb4ff!important}
+html[data-theme=dark] body .tl{color:#9bbcff}
+html[data-theme=dark] body .btn:not(.p):not(:hover):not(:focus-visible){color:#f3dc92!important;border-color:#c9a227!important}
+html[data-theme=dark] body .cm{background:linear-gradient(135deg,#1a2a55,#0f1d40)!important;border:1px solid #c9a22788;color:#e8eefc!important}
+html[data-theme=dark] body .cm .en{color:#f3dc92!important}
+html[data-theme=dark] body #nv a.on{color:#0a1f4d!important}
+html[data-theme=dark] body .pnb a.on{background:var(--gg)!important;color:#0a1f4d!important;border-color:transparent}
+html[data-theme=dark] body .steps b,html[data-theme=dark] body .pa,html[data-theme=dark] body .fh .bd,html[data-theme=dark] body .eq .go{color:#0a1f4d!important}
+html[data-theme=dark] body .steps b{background:var(--gg)!important}
+html[data-theme=dark] body .eq .go{background:var(--gg)!important}
+html[data-theme=dark] body .eq em{border-color:#c9a227}
+html[data-theme=dark] body #vx .bar{background:#27355c}
+html[data-theme=dark] body #vx .pk .in small{color:#a9b6d6}
+html[data-theme=dark] body .docs h3,html[data-theme=dark] body .docs li{color:#e8eefc}
+/* ===== ডার্ক মোডে পেজের ব্যাকগ্রাউন্ড ===== */
+/* লাইট মোডে আগের হালকা সবুজ ব্যাকগ্রাউন্ড ও সবুজ লেখা থাকবে; শুধু ডার্ক মোডে সবকিছু গাঢ় নীল হবে */
+html[data-theme=dark] body .pg.on,html[data-theme=dark].tabs body .pg.on{background:transparent!important;color:var(--ink)!important}
+/* লোগোর ব্যাকগ্রাউন্ড লাইট ও ডার্ক দুই মোডেই সাদা থাকবে */
+html[data-theme=dark] body .top img,html[data-theme=dark] body .logo,html[data-theme=dark] body .flg,html[data-theme=dark] body .fh .flg,html[data-theme=dark] body #wl .wlc{background:#fff!important}
+html[data-theme=dark] body .logo img,html[data-theme=dark] body .flg img,html[data-theme=dark] body .fh .flg img,html[data-theme=dark] body .fh img{background:transparent!important}
+html[data-theme=dark] body .flg span{color:#8d99b8!important}
 </style>
+<script>try{if(localStorage.getItem("zc_theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<script>document.documentElement.classList.add("tabs");setTimeout(function(){if(!window.__tabsOK)document.documentElement.classList.remove("tabs")},4000)</script>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0a1f4d"><link rel="apple-touch-icon" href="icon-192.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","EducationalOrganization"],"name":"Zenora Coaching Center","alternateName":"জেনোরা কোচিং সেন্টার","description":"হাতিয়া, নোয়াখালীতে অষ্টম থেকে এইচএসসি পর্যন্ত Zenora Master Programme। মানসম্মত শিক্ষা, উজ্জ্বল ভবিষ্যতের প্রতিশ্রুতি।","url":"https://jahin-28.github.io/zenoracoachingcenter/","logo":"https://jahin-28.github.io/zenoracoachingcenter/zenora-logo.jpeg","image":"https://jahin-28.github.io/zenoracoachingcenter/zenora-logo.jpeg","telephone":["+8801742104308","+8801881716907"],"email":"zenora6352@gmail.com","address":{"@type":"PostalAddress","streetAddress":"এমপি'র পোল","addressLocality":"হাতিয়া","addressRegion":"নোয়াখালী","postalCode":"3890","addressCountry":"BD"},"hasMap":"https://maps.app.goo.gl/jgkpts2NeEePyXS18","sameAs":["https://www.facebook.com/share/1EikXBQ7QG/"]}</script>
 </head>
 <body>
 
 <header><div class="w">
-  <div class="top"><img data-logo="zenora" src="zenora-logo.jpeg" alt="Zenora লোগো"><b>ZENORA COACHING CENTER</b><button id="mb" aria-label="মেনু" aria-expanded="false">☰</button></div>
-  <nav id="nv"><a href="#admission">ভর্তি ও ব্যাচ</a><a href="#courses">কোর্স</a><a href="#fees">ফি</a><a href="#services">সার্ভিস</a><a href="#why">কেন জেনোরা</a><a href="#founders">ফাউন্ডার</a><a href="#teachers">শিক্ষক</a><a href="#gallery">গ্যালারি</a><a href="#achievers">ফলাফল</a><a href="#about">জেনোরা সম্পর্কে</a><a href="#faq">FAQ</a><a href="#rules">নিয়মাবলি</a><a href="#foundation">ফাউন্ডেশন</a><a href="#contact">যোগাযোগ</a></nav>
+  <div class="top"><img data-logo="zenora" src="zenora-logo.jpeg" alt="Zenora লোগো"><b>ZENORA COACHING CENTER</b><button id="mb" hidden aria-label="মেনু">☰</button></div>
+  <nav id="nv"><a href="#home">হোম</a><a href="#courses">কোর্স ও ফি</a><a href="#about">আমাদের সম্পর্কে</a><a href="#gallery">গ্যালারি</a><a href="#foundation">ফাউন্ডেশন</a><a href="#contact">যোগাযোগ</a><a href="#vocab">ইংরেজি শব্দভাণ্ডার</a><a href="#gpa">জিপিএ</a></nav>
 </div></header>
 
 <main>
+<div class="pg" id="pg-home">
 <div class="hero"><div class="wv" aria-hidden="true"><svg viewBox="0 0 2400 100" preserveAspectRatio="none" class="v1"><path d="M0 50q150-50 300 0t300 0t300 0t300 0t300 0t300 0t300 0t300 0" fill="none" stroke="#C69A3A" stroke-width="1.5"/></svg><svg viewBox="0 0 2400 100" preserveAspectRatio="none" class="v2"><path d="M0 50q150-50 300 0t300 0t300 0t300 0t300 0t300 0t300 0t300 0" fill="none" stroke="#6f93d6" stroke-width="1.5"/></svg><svg viewBox="0 0 2400 100" preserveAspectRatio="none" class="v3"><path d="M0 50q150-50 300 0t300 0t300 0t300 0t300 0t300 0t300 0t300 0" fill="none" stroke="#C69A3A" stroke-width="1.5"/></svg></div><div class="w hg">
   <div class="logo"><img data-logo="zenora" src="zenora-logo.jpeg" alt="Zenora Coaching Center: Learn, Grow, Succeed"></div>
   <div>
@@ -321,7 +467,6 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
   <div><b>২৪ জন</b>সর্বোচ্চ প্রতি ব্যাচে</div>
   <div><b>১৫ দিন</b>ট্রায়াল ক্লাস</div>
 </div>
-
 <section id="admission" class="sec"><div class="w">
   <div class="en">ADMISSION &amp; BATCH STATUS</div>
   <h2>ভর্তি ও ব্যাচের তথ্য</h2>
@@ -368,13 +513,21 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
     <a class="btn" style="color:var(--n);border-color:var(--n)" href="https://www.facebook.com/share/1EikXBQ7QG/" target="_blank" rel="noopener">Facebook পেজে মেসেজ দিন</a>
   </div>
 </div></section>
+<section id="why" class="sec"><div class="w">
+  <div class="en">WHAT MAKES ZENORA UNIQUE?</div><h2>কেন জেনোরা অনন্য?</h2>
+  <p class="lead">হাতিয়ায় প্রচলিত কোচিং ব্যবস্থার বাইরে, পরিকল্পিত পাঠদান, নিয়মিত মূল্যায়ন, ব্যক্তিগত পর্যবেক্ষণ ও অভিভাবক সমন্বয়ের মাধ্যমে আমরা গড়ে তুলেছি একটি সুসংগঠিত একাডেমিক ব্যবস্থা।</p>
+  <ol class="wl" id="whyList"></ol>
+  <div class="phq"><div class="en">OUR PHILOSOPHY</div>আমরা বিশ্বাস করি, প্রতিটি শিক্ষার্থীর মধ্যেই সম্ভাবনা রয়েছে। প্রয়োজন সঠিক পরিবেশ, মানসম্মত শিক্ষা ও দায়িত্বশীল দিকনির্দেশনা।</div>
+</div></section>
+</div>
+
+<div class="pg" id="pg-courses">
 <section id="courses" class="sec"><div class="w">
   <div class="en">OUR COURSES</div>
   <h2>আমাদের কোর্সসমূহ</h2>
   <p class="lead">Zenora Master Programme: প্রতিটি শ্রেণির জন্য আলাদা কোর্স, প্রতিটি বিষয়ের জন্য আলাদা শিক্ষক। কার্ডে ক্লিক বা হোভার করলে বিষয়সমূহ দেখুন।</p>
   <div class="cg" id="courseList"></div>
 </div></section>
-
 <section id="fees" class="sec alt"><div class="w">
   <div class="en">ADMISSION FEES</div>
   <h2>ভর্তি ফি</h2>
@@ -388,14 +541,24 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
   <div id="svList"></div>
   <div class="cm"><div class="en">OUR COMMITMENT</div><p style="margin-top:6px">আমরা বিশ্বাস করি, মানসম্মত শিক্ষা সবার জন্য সহজলভ্য হওয়া উচিত। তাই সাশ্রয়ী খরচে বিষয়ভিত্তিক দক্ষ শিক্ষকের মাধ্যমে প্রয়োজনীয় সব বিষয়ের পাঠদান, নিয়মিত মূল্যায়ন এবং ব্যক্তিগত যত্ন নিশ্চিত করাই আমাদের অঙ্গীকার।</p></div>
 </div></section>
-
-<section id="why" class="sec"><div class="w">
-  <div class="en">WHY ZENORA?</div><h2>কেন জেনোরাকে বেছে নেবেন?</h2>
-  <p class="lead">A Different Approach to Academic Excellence</p>
-  <ol class="wl" id="whyList"></ol>
-  <div class="phq"><div class="en">OUR PHILOSOPHY</div>আমরা বিশ্বাস করি, প্রতিটি শিক্ষার্থীর মধ্যেই সম্ভাবনা রয়েছে। প্রয়োজন সঠিক পরিবেশ, মানসম্মত শিক্ষা ও দায়িত্বশীল দিকনির্দেশনা।</div>
+<section id="faq" class="sec alt"><div class="w">
+  <div class="en">FAQ</div><h2>সচরাচর জিজ্ঞাসিত প্রশ্ন</h2>
+  <p class="lead">প্রশ্নে ক্লিক করলে উত্তর খুলবে।</p>
+  <div id="faqList"></div>
 </div></section>
+<section id="rules" class="sec"><div class="w">
+  <div class="en">STUDENT RULES</div><h2>শিক্ষার্থীদের নিয়মাবলি</h2>
+  <p class="lead">Zenora Coaching Center-এ একটি সুশৃঙ্খল, নিরাপদ ও শিক্ষাবান্ধব পরিবেশ নিশ্চিত করার লক্ষ্যে প্রত্যেক শিক্ষার্থীকে নিচের নিয়মাবলি মেনে চলতে হবে।</p>
+  <div id="ruleList"></div>
+  <div class="pur"><h3>নিয়মাবলি মেনে চলার উদ্দেশ্য</h3><p>আমরা বিশ্বাস করি, একজন শিক্ষার্থীর প্রকৃত উন্নয়ন শুধু একাডেমিক ফলাফলের মধ্যে সীমাবদ্ধ নয়। জ্ঞান অর্জনের পাশাপাশি নৈতিকতা, শৃঙ্খলা, দায়িত্ববোধ, সময়ানুবর্তিতা ও ধর্মীয় মূল্যবোধের চর্চাও গুরুত্বপূর্ণ।</p><p>আমরা এই নিয়মাবলি মেনে চলি—</p><ol id="purList"></ol><p>আমাদের কাছে নিয়মাবলি শুধু কিছু বিধিনিষেধ নয়; এগুলো একটি সুন্দর শিক্ষার পরিবেশ তৈরি এবং শিক্ষার্থীদের যোগ্য, সচেতন ও দায়িত্বশীল মানুষ হিসেবে গড়ে তোলার অংশ।</p><p>আমরা চাই, Zenora-র প্রতিটি শিক্ষার্থী শুধু ভালো ফলাফল অর্জনই নয়, বরং জ্ঞান, নৈতিকতা, শৃঙ্খলা ও দায়িত্ববোধে সমৃদ্ধ হয়ে ভবিষ্যতের জন্য নিজেকে প্রস্তুত করুক।</p></div>
+</div></section>
+<section id="tips" class="sec alt"><div class="w">
+  <div class="en">10 BEST EXAM PREPARATION TIPS</div><h2>পরীক্ষার প্রস্তুতির সেরা ১০টি টিপস</h2>
+  <div class="tp" id="tipList" style="margin-top:22px"></div>
+</div></section>
+</div>
 
+<div class="pg" id="pg-about">
 <section id="about" class="sec"><div class="w">
   <div class="en">ABOUT ZENORA</div><h2>জেনোরা সম্পর্কে</h2>
   <div class="bnm">জেনোরা কোচিং সেন্টার</div>
@@ -433,59 +596,42 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
   <div class="jt" id="jrList"></div>
   <p class="jn">আমাদের যাত্রা চলমান। প্রতিটি অর্জনই হবে মানসম্মত শিক্ষার পথে আরও এক ধাপ এগিয়ে যাওয়া।</p>
 </div></section>
-
 <section id="founders" class="sec alt"><div class="w">
   <div class="en">MEET OUR FOUNDERS</div><h2>আমাদের ফাউন্ডারদের সাথে পরিচিত হোন</h2>
   <p class="lead">স্বপ্ন, দায়িত্ব ও হাতিয়ার শিক্ষার উন্নয়নে আমাদের পথচলা</p>
   <div class="fg" id="fList"></div>
 </div></section>
-
 <section id="teachers" class="sec"><div class="w">
   <div class="en">OUR TEACHERS</div><h2>আমাদের শিক্ষকবৃন্দ</h2>
   <p class="lead">প্রতি বিষয়ের জন্য আলাদা শিক্ষক। ৮ জন স্থায়ী শিক্ষকের পাশাপাশি বিশ্ববিদ্যালয়ে পড়ুয়া শিক্ষার্থীরাও পাঠদান করবেন, তাই শিক্ষকের সংখ্যা নির্দিষ্ট নয়।</p>
   <div class="tg" id="tList"></div>
 </div></section>
+</div>
+
+<div class="pg" id="pg-gallery">
 <section id="gallery" class="sec alt"><div class="w">
   <div class="en">CLASSROOM GALLERY</div><h2>ক্লাসরুম গ্যালারি</h2>
   <p class="lead">ছবিতে ক্লিক করলে বড় করে দেখতে পারবেন।</p>
   <div class="gl mz" id="clsG"></div>
 </div></section>
-
 <section id="exam" class="sec"><div class="w">
   <div class="en">EXAMINATION GALLERY</div><h2>পরীক্ষার গ্যালারি</h2>
   <p class="lead">ছবিতে ক্লিক করলে বড় করে দেখতে পারবেন।</p>
   <div class="gl" id="exmG"></div>
 </div></section>
-
 <section id="video" class="sec dkb"><div class="w">
   <div class="en">VIDEO GALLERY</div><h2>ভিডিও গ্যালারি</h2>
   <p class="lead">ক্লাসরুম ও কার্যক্রমের ভিডিও দেখুন।</p>
   <div class="vg" id="vidG"></div>
 </div></section>
-
 <section id="achievers" class="sec alt"><div class="w">
   <div class="en">OUR TOP ACHIEVERS</div><h2>আমাদের সেরা ফলাফল</h2>
   <p class="lead">আমাদের শিক্ষার্থীদের একাডেমিক সাফল্য ও মেধার স্বীকৃতি তুলে ধরতে প্রতিটি ব্যাচের সেরা তিনজন শিক্ষার্থীর ছবি, নাম ও প্রাপ্ত ফলাফল এখানে প্রদর্শিত হবে। প্রতিটি ব্যাচের ফলাফল প্রকাশের পর এই তালিকা হালনাগাদ করা হবে।</p>
   <div class="ag" id="achList"></div>
 </div></section>
+</div>
 
-<section id="faq" class="sec alt"><div class="w">
-  <div class="en">FAQ</div><h2>সচরাচর জিজ্ঞাসিত প্রশ্ন</h2>
-  <p class="lead">প্রশ্নে ক্লিক করলে উত্তর খুলবে।</p>
-  <div id="faqList"></div>
-</div></section>
-<section id="rules" class="sec"><div class="w">
-  <div class="en">STUDENT RULES</div><h2>শিক্ষার্থীদের নিয়মাবলি</h2>
-  <p class="lead">Zenora Coaching Center-এ একটি সুশৃঙ্খল, নিরাপদ ও শিক্ষাবান্ধব পরিবেশ নিশ্চিত করার লক্ষ্যে প্রত্যেক শিক্ষার্থীকে নিচের নিয়মাবলি মেনে চলতে হবে।</p>
-  <div id="ruleList"></div>
-  <div class="pur"><h3>নিয়মাবলি মেনে চলার উদ্দেশ্য</h3><p>আমরা বিশ্বাস করি, একজন শিক্ষার্থীর প্রকৃত উন্নয়ন শুধু একাডেমিক ফলাফলের মধ্যে সীমাবদ্ধ নয়। জ্ঞান অর্জনের পাশাপাশি নৈতিকতা, শৃঙ্খলা, দায়িত্ববোধ, সময়ানুবর্তিতা ও ধর্মীয় মূল্যবোধের চর্চাও গুরুত্বপূর্ণ।</p><p>আমরা এই নিয়মাবলি মেনে চলি—</p><ol id="purList"></ol><p>আমাদের কাছে নিয়মাবলি শুধু কিছু বিধিনিষেধ নয়; এগুলো একটি সুন্দর শিক্ষার পরিবেশ তৈরি এবং শিক্ষার্থীদের যোগ্য, সচেতন ও দায়িত্বশীল মানুষ হিসেবে গড়ে তোলার অংশ।</p><p>আমরা চাই, Zenora-র প্রতিটি শিক্ষার্থী শুধু ভালো ফলাফল অর্জনই নয়, বরং জ্ঞান, নৈতিকতা, শৃঙ্খলা ও দায়িত্ববোধে সমৃদ্ধ হয়ে ভবিষ্যতের জন্য নিজেকে প্রস্তুত করুক।</p></div>
-</div></section>
-
-<section id="tips" class="sec alt"><div class="w">
-  <div class="en">10 BEST EXAM PREPARATION TIPS</div><h2>পরীক্ষার প্রস্তুতির সেরা ১০টি টিপস</h2>
-  <div class="tp" id="tipList" style="margin-top:22px"></div>
-</div></section>
-
+<div class="pg" id="pg-foundation">
 <section id="foundation" class="sec alt"><div class="w">
   <div class="fh">
     <div><span class="bd">UPCOMING • ইনশাআল্লাহ ২০২৭ থেকে</span></div>
@@ -515,7 +661,9 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
   <div id="fndList" style="margin-top:18px"></div>
   <div class="fx"><div class="en">A Better Tomorrow Begins with Us</div><p style="margin-top:8px">আমরা বিশ্বাস করি, সমাজের প্রকৃত উন্নয়ন তখনই সম্ভব, যখন উন্নয়নের সুযোগ সবার কাছে পৌঁছে যায়। PLAEZEN Foundation-এর স্বপ্ন হলো—হাতিয়া থেকে শুরু করে দেশের প্রতিটি প্রান্তে এমন একটি ইতিবাচক পরিবর্তনের অংশ হওয়া, যেখানে আর্থিক সীমাবদ্ধতা কোনো শিক্ষার্থীর স্বপ্নের পথে বাধা হয়ে দাঁড়াবে না এবং অসহায় মানুষ প্রয়োজনের সময়ে সহযোগিতা পাবে।</p><p style="margin-top:10px">এটি শুধু একটি উদ্যোগের পরিকল্পনা নয়; এটি একটি সুন্দর, মানবিক ও টেকসই ভবিষ্যৎ গড়ার প্রত্যয়।</p><p style="margin-top:12px;color:var(--g2)" id="fph">ফাউন্ডেশনের যোগাযোগ নম্বর শীঘ্রই যুক্ত হবে।</p></div>
 </div></section>
+</div>
 
+<div class="pg" id="pg-contact">
 <section id="contact" class="sec"><div class="w">
   <div class="en">CONTACT US</div><h2>যোগাযোগ</h2>
   <p class="lead">ভর্তি, কোর্স, ফি অথবা ক্লাসের সময়সূচি সম্পর্কে বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।</p>
@@ -526,10 +674,14 @@ h3.sb{margin:46px 0 8px;font-size:clamp(22px,5vw,28px)}
     <a class="ct k4" href="https://www.facebook.com/share/1EikXBQ7QG/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M13 22v-8h2.7l.4-3.3H13V8.6c0-1 .3-1.6 1.7-1.6h1.7V4.1C16.1 4 15.1 4 14 4c-2.5 0-4.2 1.5-4.2 4.3v2.4H7V14h2.8v8z"/></svg><div><span>ফেসবুক পেজ</span><b>Zenora Coaching Center</b></div></a>
     <div class="ct k5"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><span>ঠিকানা</span><b>এমপি'র পোল, হাতিয়া, নোয়াখালী</b></div></div>
   </div>
-  <div class="mp"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><h3>Zenora Coaching Center</h3><p>এমপি'র পোল, হাতিয়া, নোয়াখালী</p><p id="mpn" style="margin-top:8px;color:#9fb0da">ম্যাপ ও দিকনির্দেশনা শীঘ্রই যুক্ত হবে।</p><a class="btn p" id="mapBtn" hidden target="_blank" rel="noopener">ম্যাপে দেখুন ও দিকনির্দেশনা নিন</a></div>
+  <div class="mp"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><h3>Zenora Coaching Center</h3><p>এমপি'র পোল, হাতিয়া, নোয়াখালী</p><p id="mpn" style="margin-top:8px;color:#9fb0da">ম্যাপ ও দিকনির্দেশনা শীঘ্রই যুক্ত হবে।</p><a class="btn p" id="mapBtn" hidden target="_blank" rel="noopener">ম্যাপে দেখুন ও দিকনির্দেশনা নিন</a><div style="margin-top:16px;border-radius:14px;overflow:hidden;border:2px solid var(--g)"><iframe title="Zenora Coaching Center map" src="https://www.google.com/maps?q=Zenora+Coaching+Center+Hatiya+Noakhali&output=embed" width="100%" height="300" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
 </div></section>
+</div>
+<div class="pg" id="pg-vocab"><section id="vocab" class="sec"><div class="w"><div class="en">ENGLISH VOCABULARY</div><h2>ইংরেজি শব্দভাণ্ডার</h2><p class="lead">ফ্ল্যাশ কার্ডে শব্দ শিখুন, উচ্চারণ শুনুন, প্রিয় শব্দ বুকমার্ক করুন।</p><div id="vx"><p style="text-align:center">লোড হচ্ছে...</p></div></div></section></div>
+<div class="pg" id="pg-gpa"><section id="gpa" class="sec"><div class="w"><div class="en">GPA CALCULATOR</div><h2>জিপিএ ক্যালকুলেটর</h2><p class="lead">প্রতিটি বিষয়ে ১০০ এর মধ্যে নম্বর দিন (দুই পত্র থাকলে গড় নম্বর)। এটি আনুমানিক হিসাব, সরকারি ফলাফল বোর্ডের।</p><div id="gx"></div></div></section></div>
+
+<div class="pn"><p>অন্য পেজ দেখুন</p><div class="pnb"><a href="#home">হোম</a><a href="#courses">কোর্স ও ফি</a><a href="#about">আমাদের সম্পর্কে</a><a href="#gallery">গ্যালারি</a><a href="#foundation">ফাউন্ডেশন</a><a href="#contact">যোগাযোগ</a><a href="#vocab">ইংরেজি শব্দভাণ্ডার</a><a href="#gpa">জিপিএ</a></div></div>
 <div class="vc"><div><b id="vt">—</b>Total Visits</div><div><b id="vtd">—</b>Today's Visits</div><p id="vn"></p></div>
-<!--P5-->
 </main>
 
 <footer><div class="w">
@@ -768,14 +920,27 @@ document.querySelectorAll("#fndList p").forEach(e=>e.style.marginTop="8px");
 /* ম্যাপ: MAP_URL এ লিংক বসালে বাটন চালু হবে */
 if(MAP_URL){const b=$("mapBtn");b.href=MAP_URL;b.hidden=false;$("mpn").hidden=true}
 
-/* ভিজিটর কাউন্টার: GoatCounter এ একাউন্ট খুলে কোড (যেমন zenora) এখানে বসান। না বসালে কোনো সংখ্যা দেখানো হবে না */
+/* ভিজিটর কাউন্টার: GC তে GoatCounter এর কোড বসান। ১ জানুয়ারি ২০২৬ থেকে গোনে, ৪৫ সেকেন্ডে নিজে আপডেট হয়, সংখ্যা কখনো কমে না */
 const GC="zenora";
-function cnt(el,n){let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
-if(GC){const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+GC+".goatcounter.com/count";document.head.appendChild(sc);
-const b="https://"+GC+".goatcounter.com/counter/"+encodeURIComponent(location.pathname)+".json",d=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Dhaka"});
-const g=u=>fetch(u).then(r=>r.json()).then(j=>parseInt(String(j.count).replace(/\D/g,""))||0);
-setTimeout(()=>{const x=Date.now();g(b+"?start=2025-01-01&_="+x).then(n=>cnt($("vt"),n)).catch(()=>{});g(b+"?start="+d+"&_="+x).then(n=>cnt($("vtd"),n)).catch(()=>{})},1500)}
-else $("vn").textContent="ভিজিটর কাউন্টার শীঘ্রই চালু হবে।";
+const VSTART="2026-01-01",VPATHS=["/","/index.html","/home","/courses","/about","/gallery","/foundation","/contact","/vocab","/gpa"],TABN={home:"হোম",courses:"কোর্স ও ফি",about:"আমাদের সম্পর্কে",gallery:"গ্যালারি",foundation:"ফাউন্ডেশন",contact:"যোগাযোগ",vocab:"ইংরেজি শব্দভাণ্ডার",gpa:"জিপিএ ক্যালকুলেটর"};
+function hit(p){const go=()=>window.goatcounter&&window.goatcounter.count;if(!GC)return;if(go()){goatcounter.count({path:"/"+p,title:TABN[p]});return}let n=0;const t=setInterval(()=>{if(go()){clearInterval(t);goatcounter.count({path:"/"+p,title:TABN[p]})}else if(++n>60)clearInterval(t)},100)}
+const lsg=k=>{try{return parseInt(localStorage.getItem(k))||0}catch(e){return 0}},lss=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+function shw(id,n){const el=$(id),from=parseInt(String(el.textContent).replace(/\D/g,""))||0;if(n===from&&el.dataset.s)return;el.dataset.s=1;let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/900,1);el.textContent=Math.round(from+(n-from)*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+if(GC){
+ window.goatcounter={no_onload:true};
+ const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+GC+".goatcounter.com/count";document.head.appendChild(sc);
+ const base="https://"+GC+".goatcounter.com/counter/",dk=()=>new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Dhaka"});
+ const one=(p,q)=>fetch(base+encodeURIComponent(p)+".json?"+q+"&_="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(j=>parseInt(String(j.count).replace(/\D/g,""))||0).catch(()=>0);
+ const sum=q=>Promise.all(VPATHS.map(p=>one(p,q))).then(a=>a.reduce((x,y)=>x+y,0));
+ let mode="",day="",vb=lsg("zc_vt"),vd=0;
+ const many=async q=>{if(mode==="T")return one("TOTAL",q);if(mode==="S")return sum(q);const [t,m]=await Promise.all([one("TOTAL",q),sum(q)]);if(t>0||m>0){mode=m>=t?"S":"T"}return Math.max(t,m)};
+ async function refresh(){const d=dk();if(d!==day){day=d;vd=lsg("zc_vd_"+d)}
+  const t=await many("start="+VSTART),td=await many("start="+d+"&end="+d);
+  if(t>vb){vb=t;lss("zc_vt",vb)}if(td>vd){vd=td;lss("zc_vd_"+d,vd)}
+  if(vb>0){shw("vt",vb);shw("vtd",vd)}}
+ window.zcRefresh=()=>setTimeout(refresh,6000);
+ setTimeout(refresh,1200);let ticks=0;setInterval(()=>{if(!document.hidden&&++ticks<=80)refresh()},45000);
+}else{$("vn").textContent="ভিজিটর কাউন্টার শীঘ্রই চালু হবে।"}
 /*P5js*/
 
 /* জেনোরা: লোগোর তাৎপর্য */
@@ -801,8 +966,116 @@ $("plgList").innerHTML=[["১. ঘরসদৃশ বহিরাবরণ","ন
 ["৬. ভিত্তিরেখা","দৃঢ়তা ও স্থায়িত্ব: মানব অবয়বের নিচের বিস্তৃত ভিত্তি আমাদের দৃঢ় অবস্থান, ঐক্য এবং দীর্ঘমেয়াদি লক্ষ্যকে নির্দেশ করে। আমরা সাময়িক পরিবর্তনের পরিবর্তে স্থায়ী ও ইতিবাচক প্রভাব সৃষ্টিতে বিশ্বাসী।"]].map(x=>`<div class="nb"><h3>${x[0]}</h3>${x[1]}</div>`).join("");
 
 /* পটভূমির অ্যানিমেশন: অল্প কিছু ভাসমান কণা (শুধু CSS অ্যানিমেশন, কোনো লাইব্রেরি নেই) */
-(function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const b=document.createElement("div");b.className="bgfx";b.setAttribute("aria-hidden","true");const n=innerWidth<700?14:28,C=["#071B3A","#102B52"];let h="";for(let i=0;i<n;i++){const g=i%3===0,z=4+Math.random()*6;h+=`<i class="${g?"g":""}" style="left:${Math.random()*100}%;width:${z}px;height:${z}px;background:${g?"#C69A3A":C[i%2]};--dx:${(Math.random()*80-40).toFixed(0)}px;animation-duration:${(45+Math.random()*40).toFixed(0)}s;animation-delay:-${(Math.random()*60).toFixed(0)}s"></i>`}b.innerHTML=h;document.body.prepend(b)})();
+(function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const b=document.createElement("div");b.className="bgfx";b.setAttribute("aria-hidden","true");const n=innerWidth<700?26:50;let h="";for(let i=0;i<n;i++){const g=i%3===0,z=8+Math.random()*12;h+=`<i class="${g?"g":""}" style="left:${Math.random()*100}%;width:${z}px;height:${z}px;--dx:${(Math.random()*80-40).toFixed(0)}px;animation-duration:${(80+Math.random()*50).toFixed(0)}s;animation-delay:-${(Math.random()*120).toFixed(0)}s"></i>`}b.innerHTML=h;document.body.prepend(b)})();
 /*P6js*/
+</script>
+<script>
+try{(function(){
+const pages=[...document.querySelectorAll(".pg")],names=pages.map(p=>p.id.slice(3)),nav=[...document.querySelectorAll("#nv a,.pnb a")];let cur="";
+function show(p,el){pages.forEach(g=>g.classList.toggle("on",g.id==="pg-"+p));nav.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+p));
+ if(p!==cur){cur=p;if(!el)window.scrollTo(0,0);hit(p);if(window.zcRefresh)zcRefresh()}
+ if(el)setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),80)}
+function route(){let h="";try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}let p="home",el=null;
+ if(names.includes(h))p=h;else if(h){el=document.getElementById(h);const g=el&&el.closest(".pg");if(g)p=g.id.slice(3);else el=null}
+ show(p,el)}
+window.addEventListener("hashchange",route);route();window.__tabsOK=1;
+})()}catch(e){document.documentElement.classList.remove("tabs");console.error(e)}
+</script>
+<script>
+try{(function(){
+const rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches,IO="IntersectionObserver"in window;
+if(!rm&&IO){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");o.unobserve(e.target)}}),{threshold:.05});
+ document.querySelectorAll(".sec>.w").forEach(e=>{e.classList.add("rv");o.observe(e)});
+ const BN="০১২৩৪৫৬৭৮৯",st=document.querySelector(".stats");
+ if(st){const o2=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;o2.disconnect();st.querySelectorAll("b").forEach(b=>{const m=b.textContent.match(/[০-৯]+/);if(!m)return;const to=+m[0].replace(/[০-৯]/g,c=>BN.indexOf(c)),pre=b.textContent.slice(0,m.index),post=b.textContent.slice(m.index+m[0].length);let t0=null;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1000,1);b.textContent=pre+String(Math.round(to*p)).replace(/\d/g,d=>BN[d])+post;if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)})},{threshold:.4});o2.observe(st)}}
+let seen=0;try{seen=sessionStorage.getItem("zc_w")}catch(e){}
+if(!rm&&!seen){try{sessionStorage.setItem("zc_w","1")}catch(e){}
+ const w=document.createElement("div");w.id="wl";w.innerHTML='<div><div class="wlc"><img src="'+(typeof LOGOS!=="undefined"?LOGOS.zenora:"zenora-logo.jpeg")+'" alt=""></div><div class="wt">WELCOME TO</div><div class="wn">'+"ZENORA COACHING CENTER".split(" ").map((w,k)=>`<span class="ww">`+[...w].map((c,i)=>`<span style="animation-delay:${(.7+(k*7+i)*.05).toFixed(2)}s">${c}</span>`).join("")+`</span>`).join(" ")+'</div><div class="wr"></div><div class="wm">LEARN • GROW • SUCCEED</div></div>';document.body.appendChild(w);
+ const hide=()=>{w.classList.add("out");setTimeout(()=>w.remove(),700)};w.onclick=hide;setTimeout(hide,4600)}
+})()}catch(e){console.error(e)}
+</script>
+
+
+<script>
+try{(function(){
+const $$=(h)=>{const d=document.createElement("div");d.innerHTML=h;return d.firstElementChild};
+/* ১) বিশেষ দিনের ব্যানার: সব কিছু নিজে থেকে চলে। ঈদ হিজরি ক্যালেন্ডার থেকে, বাংলা সাল ইংরেজি সাল থেকে হিসাব হয়। নতুন দিন যোগ করতে EVENTS এ একটা লাইন বসান। k = ধরন (eid, nat, bw, ny), m = মাস, d = দিন, len = কত দিন দেখাবে */
+const td=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"})),Y=td.getFullYear();
+const EVENTS=[
+ {k:"ny",m:1,d:1,t:()=>"🎉 ইংরেজি নববর্ষের শুভেচ্ছা! Zenora পরিবারের পক্ষ থেকে সবাইকে শুভ নববর্ষ।"},
+ {k:"nat",m:2,d:21,t:()=>"🇧🇩 শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবসে বিনম্র শ্রদ্ধা।"},
+ {k:"nat",m:3,d:26,t:()=>"🇧🇩 মহান স্বাধীনতা দিবসের শুভেচ্ছা।"},
+ {k:"bw",m:4,d:14,t:()=>"🎊 শুভ নববর্ষ "+(Y-593)+"! Zenora পরিবারের পক্ষ থেকে সবাইকে পহেলা বৈশাখের শুভেচ্ছা।"},
+ {k:"nat",m:12,d:16,t:()=>"🇧🇩 মহান বিজয় দিবসের শুভেচ্ছা।"}
+];
+/* ঈদ: নিজে থেকে হিজরি তারিখ দেখে বোঝে (সৌদি হিসাবে, বাংলাদেশে চাঁদ দেখার কারণে ১ দিন আগে-পরে হতে পারে)। সঠিক তারিখ চাইলে এখানে নিজে লিখুন, যেমন {y:2027,m:3,d:10,len:4} */
+const EID_FIX=[];
+let hj=null;try{const p=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",{day:"numeric",month:"numeric",timeZone:"Asia/Dhaka"}).formatToParts(new Date()),g=t=>+p.find(x=>x.type===t).value;hj={m:g("month"),d:g("day")}}catch(e){}
+let ev=null;
+const fx=EID_FIX.find(e=>e.y===Y&&new Date(Y,e.m-1,e.d)<=td&&td<=new Date(Y,e.m-1,e.d+(e.len||1)-1));
+if(fx)ev={k:"eid",t:()=>"🌙 ঈদ মোবারক! Zenora Coaching Center পরিবারের পক্ষ থেকে সবাইকে ঈদের শুভেচ্ছা।"};
+else if(hj&&hj.m===10&&hj.d<=4)ev={k:"eid",t:()=>"🌙 ঈদুল ফিতরের শুভেচ্ছা! ঈদ মোবারক। Zenora Coaching Center পরিবারের পক্ষ থেকে সবাইকে শুভেচ্ছা।"};
+else if(hj&&hj.m===12&&hj.d>=10&&hj.d<=13)ev={k:"eid",t:()=>"🌙 ঈদুল আযহার শুভেচ্ছা! ঈদ মোবারক। Zenora Coaching Center পরিবারের পক্ষ থেকে সবাইকে শুভেচ্ছা।"};
+else ev=EVENTS.find(e=>td.getMonth()+1===e.m&&td.getDate()>=e.d&&td.getDate()<e.d+(e.len||1));
+let cl=0;try{cl=sessionStorage.getItem("zc_b")}catch(e){}
+if(ev&&!cl){const st=Y%3,b=$$('<div id="zb" class="'+ev.k+" v"+st+'"><span class="zd">'+(ev.k==="eid"?"✨ 🌙 ⭐":ev.k==="bw"?"🌺 🥁 🎶":ev.k==="nat"?"🇧🇩 🌿 🇧🇩":"🎆 ✨ 🎇")+"</span> "+ev.t()+'<button aria-label="বন্ধ">×</button></div>');b.querySelector("button").onclick=()=>{b.remove();try{sessionStorage.setItem("zc_b","1")}catch(e){}};document.body.prepend(b)}
+/* ২) টুলবার: ডার্ক মোড, জিপিএ, অ্যাপ ইনস্টল */
+const tb=$$('<div id="zt"><button id="zd" title="ডার্ক/লাইট মোড" aria-label="ডার্ক মোড">🌙</button><button id="zi" title="অ্যাপ হিসেবে যোগ করুন" aria-label="অ্যাপ ইনস্টল" hidden>📲</button></div>');document.body.appendChild(tb);
+const R=document.documentElement,dk=()=>R.getAttribute("data-theme")==="dark",ic=()=>{tb.querySelector("#zd").textContent=dk()?"☀️":"🌙"};ic();
+tb.querySelector("#zd").onclick=()=>{dk()?R.removeAttribute("data-theme"):R.setAttribute("data-theme","dark");try{localStorage.setItem("zc_theme",dk()?"dark":"light")}catch(e){}ic()};
+let ip=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();ip=e;tb.querySelector("#zi").hidden=false});
+tb.querySelector("#zi").onclick=async()=>{if(!ip)return;ip.prompt();await ip.userChoice;ip=null;tb.querySelector("#zi").hidden=true};
+/* ৪) অ্যাপের মতো (PWA) */
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))navigator.serviceWorker.register("sw.js").catch(()=>{});
+})()}catch(e){console.error(e)}
+</script>
+<script>
+/* ইংরেজি শব্দভাণ্ডার পেজ: words.js থেকে শব্দ নেয়। প্রতিটি শব্দ: [word, ধরন, বাংলা অর্থ, উদাহরণ, (ঐচ্ছিক) সমার্থক, (ঐচ্ছিক) বিপরীতার্থক] */
+try{(function(){
+const $=id=>document.getElementById(id),R=$("vx");if(!R)return;
+const LV=[{k:"b",n:"সহজ শব্দভাণ্ডার",t:"Easy",c:"#2a8fc7",s:"দৈনন্দিন ব্যবহার"},{k:"m",n:"মাঝারি শব্দভাণ্ডার",t:"Medium",c:"#cf4a42",s:"স্কুল ও দৈনন্দিন জীবন"},{k:"a",n:"অ্যাডভান্সড শব্দভাণ্ডার",t:"Hard",c:"#6a2fa0",s:"রচনা ও আনুষ্ঠানিক ব্যবহার"}];
+let D=null,lv="b",P={seen:{},bm:{},done:{}},dk=null,ix=0,fl=false,mr=false,ld=false;
+try{P=Object.assign(P,JSON.parse(localStorage.getItem("zc_vp")||"{}"))}catch(e){}
+const sv=()=>{try{localStorage.setItem("zc_vp",JSON.stringify(P))}catch(e){}},esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+function say(t,sl){if(!("speechSynthesis" in window)){alert("এই ব্রাউজারে উচ্চারণ শোনার সুবিধা নেই");return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";const v=speechSynthesis.getVoices().find(x=>/^en[-_]US$/i.test(x.lang));if(v)u.voice=v;u.rate=sl?.55:.9;speechSynthesis.speak(u)}
+const packs=l=>D.map((s,i)=>({s,i})).filter(x=>x.s.l===l),key=i=>"p"+i,isDone=x=>x.s.w.every(r=>P.seen[r[0]]),open=x=>{const j=packs(lv);const p=j.findIndex(y=>y.i===x.i);return p===0||isDone(j[p-1])};
+function home(){dk=null;const all=D.reduce((a,s)=>a+s.w.length,0),sn=D.reduce((a,s)=>a+s.w.filter(r=>P.seen[r[0]]).length,0),bm=Object.keys(P.bm).filter(k=>P.bm[k]).length;
+let h='<div class="vtop"><b>আপনার অগ্রগতি</b><span>শেখা শব্দ: '+bn(sn)+" / "+bn(all)+'</span></div><input class="vsr" id="vq" type="search" placeholder="ইংরেজি শব্দ বা বাংলা অর্থ খুঁজুন"><div class="lvs">';
+LV.forEach(l=>{const n=packs(l.k).reduce((a,x)=>a+x.s.w.length,0);h+='<button class="lvc'+(lv===l.k?" on":"")+'" style="--c:'+l.c+'" data-lv="'+l.k+'"><b>'+l.n+'</b><em>'+l.t+'</em><small>'+bn(n)+" শব্দ · "+l.s+"</small></button>"});
+h+="</div>";packs(lv).forEach((x,j)=>{const ok=open(x),dn=isDone(x),sn2=x.s.w.filter(r=>P.seen[r[0]]).length;h+='<div class="pk'+(dn?" dn":"")+'"><div class="tr">'+(dn?"🏆":ok?"🎯":"🔒")+'</div><div class="in"><b>ওয়ার্ডপ্যাক '+bn(j+1)+" · "+esc(x.s.n)+"</b><small>"+bn(sn2)+" / "+bn(x.s.w.length)+' শব্দ শেখা</small><div class="bar"><i style="width:'+Math.round(sn2/x.s.w.length*100)+'%"></i></div></div><button data-pk="'+x.i+'"'+(ok?"":" disabled")+">"+(dn?"রিভাইজ":ok?"শেখা শুরু করুন":"লক")+"</button></div>"});
+h+='<div class="bk2">🔖 বুকমার্ক করা শব্দগুলি ('+bn(bm)+')<button class="bt" data-bm="1">দেখুন</button></div>';R.innerHTML=h;
+$("vq").oninput=e=>{const q=e.target.value.trim();if(!q)return;const k=q.toLowerCase(),it=D.flatMap(s=>s.w).filter(r=>r[0].toLowerCase().includes(k)||r[2].includes(q));if(it.length)start(it,"খোঁজার ফলাফল",0,true);else{e.target.style.borderColor="#d33"}}}
+function start(w,t,pk,free){dk={w,t,pk,free};ix=0;fl=false;mr=false;card()}
+function card(){const r=dk.w[ix],n=dk.w.length;P.seen[r[0]]=1;sv();const b=!!P.bm[r[0]];
+let h='<div class="hd"><button data-back="1" aria-label="ফিরুন">←</button><b>'+esc(dk.t)+'</b></div><div class="fc3'+(fl?" f":"")+'" id="fc"><div class="fi"><div class="fa"><button class="ic l" data-b="1" aria-label="বুকমার্ক">'+(b?"🔖":"🏷️")+'</button><button class="ic r" data-s="'+esc(r[0])+'" aria-label="উচ্চারণ">🔊</button><div class="w">'+esc(r[0])+'</div><div class="hn">অর্থ দেখতে কার্ডে ট্যাপ করুন</div></div><div class="fa b"><button class="ic r" data-s="'+esc(r[0])+'" aria-label="উচ্চারণ">🔊</button><div class="w" style="font-size:1.4em">'+esc(r[0])+'</div><div class="p">'+esc(r[1])+'</div><div class="m">'+esc(r[2])+'</div></div></div></div>';
+h+='<div class="nv2"><button data-nx="-1"'+(ix?"":" disabled")+'>‹ পূর্ববর্তী</button><span>'+bn(ix+1)+" / "+bn(n)+'</span><button data-nx="1">'+(ix===n-1?"শেষ ✓":"পরবর্তী ›")+'</button></div><button class="bt mr" data-mr="1">'+(mr?"তথ্য লুকান":"উদাহরণ ও আরও তথ্য দেখুন")+"</button>";
+if(mr){h+='<div class="dt"><p><b>বাক্য:</b> '+esc(r[3])+"</p>"+(r[4]?"<p><b>সমার্থক শব্দ:</b> "+esc(r[4])+"</p>":"")+(r[5]?"<p><b>বিপরীতার্থক শব্দ:</b> "+esc(r[5])+"</p>":"")+'<div class="ab"><button data-s="'+esc(r[0])+'">🔊 শব্দ</button><button data-s="'+esc(r[0])+'" data-sl="1">🐢 ধীরে</button><button data-e="'+esc(r[3])+'">🔊 বাক্য</button></div></div>'}
+R.innerHTML=h}
+function fin(){const nx=dk.pk!=null&&dk.pk>=0;R.innerHTML='<div class="done"><div class="tr">🏆</div><h3>অভিনন্দন!</h3><p>'+(dk.free?"শেষ কার্ড দেখা হয়েছে।":"এই ওয়ার্ডপ্যাক সম্পূর্ণ হয়েছে। পরের প্যাক আনলক হয়েছে।")+'</p><button class="bt" data-back="1">তালিকায় ফিরুন</button></div>'}
+R.onclick=e=>{const t=e.target,b=t.closest("button");
+if(b){if(b.dataset.lv){lv=b.dataset.lv;home()}else if(b.dataset.pk!==undefined){const x=D[+b.dataset.pk];start(x.w,"ওয়ার্ডপ্যাক · "+x.n,+b.dataset.pk)}else if(b.dataset.bm){const w=D.flatMap(s=>s.w).filter(r=>P.bm[r[0]]);if(w.length)start(w,"বুকমার্ক করা শব্দ",-1,true);else alert("এখনো কোনো শব্দ বুকমার্ক করা হয়নি। কার্ডের উপরের বাঁ কোণার 🏷️ চাপুন।")}
+else if(b.dataset.back)home();else if(b.dataset.b){const r=dk.w[ix];P.bm[r[0]]=!P.bm[r[0]];sv();card()}else if(b.dataset.s)say(b.dataset.s,b.dataset.sl);else if(b.dataset.e)say(b.dataset.e);
+else if(b.dataset.mr){mr=!mr;const f=fl;card()}else if(b.dataset.nx){const d=+b.dataset.nx;if(ix+d>=dk.w.length){fin();return}ix+=d;fl=false;mr=false;card()}return}
+if(t.closest("#fc")){fl=!fl;$("fc").classList.toggle("f",fl)}};
+function init(){if(ld)return;ld=true;const sc=document.createElement("script");sc.src="words.js";sc.onload=()=>{D=window.ZW||[];home()};sc.onerror=()=>{R.innerHTML='<p style="text-align:center">words.js ফাইল পাওয়া যায়নি। GitHub এ আপলোড হয়েছে কিনা দেখুন।</p>'};document.head.appendChild(sc)}
+const chk=()=>{if(location.hash==="#vocab")init()};addEventListener("hashchange",chk);chk();
+})()}catch(e){console.error(e)}
+</script>
+<script>
+try{(function(){
+const G=document.getElementById("gx");if(!G)return;
+const gp=m=>m>=80?5:m>=70?4:m>=60?3.5:m>=50?3:m>=40?2:m>=33?1:0;
+const row=n=>'<div class="r"><input type="text" list="gsub" placeholder="বিষয়" value="'+(n||"")+'"><input type="number" min="0" max="100" placeholder="নম্বর"><label title="৪র্থ বিষয়"><input type="checkbox"></label></div>';
+G.innerHTML='<div class="gc"><div class="gh"><span>বিষয়</span><span>নম্বর</span><span>৪র্থ</span></div><div id="grw">'+["বাংলা","ইংরেজি","গণিত","তথ্য ও যোগাযোগ প্রযুক্তি","ইসলাম ও নৈতিক শিক্ষা","বাংলাদেশ ও বিশ্বপরিচয়"].map(row).join("")+'</div><datalist id="gsub">'+["পদার্থবিজ্ঞান", "রসায়ন", "জীববিজ্ঞান", "উচ্চতর গণিত", "সাধারণ বিজ্ঞান", "হিন্দুধর্ম ও নৈতিক শিক্ষা", "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", "খ্রিস্টধর্ম ও নৈতিক শিক্ষা", "ভূগোল ও পরিবেশ", "ইতিহাস ও বিশ্বসভ্যতা", "অর্থনীতি", "পৌরনীতি ও নাগরিকতা", "হিসাববিজ্ঞান", "ব্যবসায় উদ্যোগ", "ফিন্যান্স ও ব্যাংকিং", "কৃষিশিক্ষা", "গার্হস্থ্য বিজ্ঞান"].map(x=>'<option value="'+x+'">').join("")+'</datalist><div class="ac"><button id="ga">+ বিষয় যোগ করুন</button><button class="go" id="gk">হিসাব করুন</button><button id="gr">মুছে ফেলুন</button></div><div class="rs" id="grs"></div><table><tr><th>নম্বর</th><th>গ্রেড</th><th>পয়েন্ট</th></tr><tr><td>৮০-১০০</td><td>A+</td><td>৫.০০</td></tr><tr><td>৭০-৭৯</td><td>A</td><td>৪.০০</td></tr><tr><td>৬০-৬৯</td><td>A-</td><td>৩.৫০</td></tr><tr><td>৫০-৫৯</td><td>B</td><td>৩.০০</td></tr><tr><td>৪০-৪৯</td><td>C</td><td>২.০০</td></tr><tr><td>৩৩-৩৯</td><td>D</td><td>১.০০</td></tr><tr><td>০-৩২</td><td>F</td><td>০.০০</td></tr></table></div>';
+const $=id=>document.getElementById(id);
+$("ga").onclick=()=>{const d=document.createElement("div");d.innerHTML=row("");$("grw").appendChild(d.firstChild)};
+$("gr").onclick=()=>{G.querySelectorAll(".r input[type=number]").forEach(i=>i.value="");G.querySelectorAll(".r input[type=checkbox]").forEach(i=>i.checked=false);$("grs").style.display="none"};
+$("gk").onclick=()=>{const o=$("grs");let sum=0,c=0,fail=0,opt=null;[...G.querySelectorAll(".r")].forEach(r=>{const v=r.children[1].value;if(v==="")return;const p=gp(+v),isO=r.querySelector("input[type=checkbox]").checked;if(isO&&opt===null)opt=p;else{c++;sum+=p;if(p===0)fail=1}});
+ o.style.display="block";if(!c){o.textContent="কমপক্ষে একটি বিষয়ের নম্বর দিন।";return}
+ const g=fail?0:Math.min(5,(sum+(opt?Math.max(0,opt-2):0))/c),L=g>=5?"A+":g>=4?"A":g>=3.5?"A-":g>=3?"B":g>=2?"C":g>=1?"D":"F";
+ o.textContent=fail?"কোনো বিষয়ে ৩৩ এর কম, তাই ফলাফল: অকৃতকার্য (GPA 0.00)":"আপনার জিপিএ: "+g.toFixed(2)+" ("+L+")"};
+})()}catch(e){console.error(e)}
 </script>
 </body>
 </html>
