@@ -959,7 +959,7 @@ if(GC){
  let mode="",day="",vb=lsg("zc_vt"),vd=0;
  const many=async q=>{if(mode==="T")return one("TOTAL",q);if(mode==="S")return sum(q);const [t,m]=await Promise.all([one("TOTAL",q),sum(q)]);if(t>0||m>0){mode=m>=t?"S":"T"}return Math.max(t,m)};
  async function refresh(){const d=dk();if(d!==day){day=d;vd=lsg("zc_vd_"+d)}
-  const t=await many("start="+VSTART),td=await many("start="+d+"&end="+d);
+  const t=await many("start="+VSTART),td=await many("start="+d);
   if(t>vb){vb=t;lss("zc_vt",vb)}if(td>vd){vd=td;lss("zc_vd_"+d,vd)}
   if(vb>0){shw("vt",vb);shw("vtd",vd)}}
  window.zcRefresh=()=>setTimeout(refresh,6000);
